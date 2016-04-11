@@ -21,6 +21,7 @@ botService.on('personalMessage', (bot, data) => {
 });
 
 const server = restify.createServer();
+server.use(restify.bodyParser());
 
 /* Uncomment following lines to enable https verification for Azure.
 server.use(skype.ensureHttps(true));
