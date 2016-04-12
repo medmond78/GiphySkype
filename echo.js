@@ -28,8 +28,8 @@ botService.on('contactAdded', (bot, data) => {
 });
 
 botService.on('personalMessage', (bot, data) => {
-
-  synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=magic', false); // false means synchronous.
+  var tag = $data.content;
+  synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + tag, false); // false means synchronous.
   synchronousRequest.send();
   var obj = JSON.parse(synchronousRequest.responseText);
 
