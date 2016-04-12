@@ -1,6 +1,7 @@
 const fs = require('fs');
 const restify = require('restify');
 const skype = require('skype-sdk');
+const giphy = require('giphy-api')();
 
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const synchronousRequest = new XMLHttpRequest();
@@ -29,14 +30,13 @@ botService.on('contactAdded', (bot, data) => {
 
 botService.on('personalMessage', (bot, data) => {
 
-  //call name API
-  //synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
-  fullURL = baseURL + ${data.content};
-
-  //synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=magic', false);
-  synchronousRequest.open('GET', 'fullURL', false);
-  synchronousRequest.send();
-  var obj = JSON.parse(synchronousRequest.responseText);
+  giphy.random({
+    tag: '${data.content}',
+    fmt: 'json'
+    }, function(err, res) {
+ 
+});
+  var obj = JSON.parse(res.responseText);
 
   //Reply
   //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
