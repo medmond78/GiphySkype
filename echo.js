@@ -29,12 +29,13 @@ botService.on('contactAdded', (bot, data) => {
 botService.on('personalMessage', (bot, data) => {
 
   //call name API
-  synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
+  //synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
+  synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC', false); // false means synchronous.
   synchronousRequest.send();
   var obj = JSON.parse(synchronousRequest.responseText);
 
   //Reply
-  bot.reply(`Hey ${obj['results']['0']['object']['first_name']}. Thank you for your message: "${data.content}".`, true);
+  bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
 
   //Call the giphy api
 
