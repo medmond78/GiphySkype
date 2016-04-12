@@ -34,7 +34,7 @@ botService.on('personalMessage', (bot, data) => {
   fullURL = baseURL + ${data.content};
 
   //synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=magic', false);
-  synchronousRequest.open('GET', fullURL, false);
+  synchronousRequest.open('GET', 'fullURL', false);
   synchronousRequest.send();
   var obj = JSON.parse(synchronousRequest.responseText);
 
