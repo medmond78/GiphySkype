@@ -41,7 +41,8 @@ botService.on('personalMessage', (bot, data) => {
   //Reply
   //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
 
-  bot.reply(`${obj['data']['image_original_url']}`, true);
+  //bot.reply(`${obj['data']['image_original_url']}`, true);
+  bot.reply(`${res}`, true);
 
 });
 
