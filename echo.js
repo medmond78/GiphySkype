@@ -31,10 +31,10 @@ botService.on('contactAdded', (bot, data) => {
 botService.on('personalMessage', (bot, data) => {
 
   giphy.random({
-    tag: '${data.content}',
+    tag: $data.content,
     fmt: 'json'
     }, function(err, res) {
- 
+
 });
   var obj = JSON.parse(res.responseText);
 
