@@ -17,7 +17,7 @@ botService.on('contactAdded', (bot, data) => {
 });
 
 botService.on('personalMessage', (bot, data) => {
-    bot.reply(`Hey ${data.from}. Thank you for your message: "${data.content}".`, true);
+  //  bot.reply(`Hey ${data.from}. Thank you for your message: "${data.content}".`, true);
     bot.reply(`http://i.giphy.com/9poL1pf3IbCO4.gif`,true)
 });
 
