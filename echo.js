@@ -8,7 +8,7 @@ const synchronousRequest = new XMLHttpRequest();
 //synchronousRequest.send();
 
 
-var obj = JSON.parse(synchronousRequest.responseText);
+//var obj = JSON.parse(synchronousRequest.responseText);
 //console.log("First Name:", obj['results']['0']['object']['first_name']);
 //console.log("Last Name:", obj['results']['0']['object']['last_name']);
 
@@ -27,9 +27,15 @@ botService.on('contactAdded', (bot, data) => {
 });
 
 botService.on('personalMessage', (bot, data) => {
+
+  //call name API
   synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
   synchronousRequest.send();
+  var obj = JSON.parse(synchronousRequest.responseText);
+
+  //Reply
   bot.reply(`Hey ${obj['results']['0']['object']['first_name']}. Thank you for your message: "${data.content}".`, true);
+
   //Call the giphy api
 
   //bot.reply(`http://i.giphy.com/9poL1pf3IbCO4.gif`,true)
