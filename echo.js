@@ -36,12 +36,12 @@ botService.on('personalMessage', (bot, data) => {
     }, function(err, res) {
   });
 
-  //var obj = JSON.parse(res.responseText);
+  var obj = JSON.parse(res);
 
   //Reply
   //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
 
-  bot.reply(`${res['data']['image_original_url']}`, true);
+  bot.reply(`${obj['data']['image_original_url']}`, true);
 
 });
 
