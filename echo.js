@@ -4,7 +4,7 @@ const skype = require('skype-sdk');
 
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const synchronousRequest = new XMLHttpRequest();
-synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho', false); // false means synchronous.
+synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
 synchronousRequest.send();
 
 
