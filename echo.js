@@ -31,7 +31,7 @@ botService.on('contactAdded', (bot, data) => {
 botService.on('personalMessage', (bot, data) => {
 
   giphy.random({
-    tag: '$data.content',
+    tag: 'magic',
     fmt: 'json'
     }, function(err, res) {
   });
