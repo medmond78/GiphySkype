@@ -4,8 +4,8 @@ const skype = require('skype-sdk');
 
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const synchronousRequest = new XMLHttpRequest();
-synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
-synchronousRequest.send();
+//synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
+//synchronousRequest.send();
 
 
 var obj = JSON.parse(synchronousRequest.responseText);
@@ -27,6 +27,8 @@ botService.on('contactAdded', (bot, data) => {
 });
 
 botService.on('personalMessage', (bot, data) => {
+  synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
+  synchronousRequest.send();
   bot.reply(`Hey ${obj['results']['0']['object']['first_name']}. Thank you for your message: "${data.content}".`, true);
   //Call the giphy api
 
