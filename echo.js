@@ -31,17 +31,17 @@ botService.on('contactAdded', (bot, data) => {
 botService.on('personalMessage', (bot, data) => {
 
   giphy.random({
-    tag: $data.content,
+    tag: '$data.content',
     fmt: 'json'
     }, function(err, res) {
+  });
 
-});
-  var obj = JSON.parse(res.responseText);
+  //var obj = JSON.parse(res.responseText);
 
   //Reply
   //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
 
-  bot.reply(`${obj['data']['image_original_url']}`, true);
+  bot.reply(`${res['data']['image_original_url']}`, true);
 
 });
 
