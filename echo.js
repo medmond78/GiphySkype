@@ -2,10 +2,10 @@ const fs = require('fs');
 const restify = require('restify');
 const skype = require('skype-sdk');
 
-//var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
-//var synchronousRequest = new XMLHttpRequest();
-//synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho', false); // false means synchronous.
-//synchronousRequest.send();
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+const synchronousRequest = new XMLHttpRequest();
+synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho', false); // false means synchronous.
+synchronousRequest.send();
 
 
 const botService = new skype.BotService({
