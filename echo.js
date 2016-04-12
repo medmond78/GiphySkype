@@ -2,6 +2,10 @@ const fs = require('fs');
 const restify = require('restify');
 const skype = require('skype-sdk');
 
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+
+
+
 const botService = new skype.BotService({
     messaging: {
         botId: process.env.BOT_ID,
@@ -18,7 +22,11 @@ botService.on('contactAdded', (bot, data) => {
 
 botService.on('personalMessage', (bot, data) => {
   //  bot.reply(`Hey ${data.from}. Thank you for your message: "${data.content}".`, true);
-    bot.reply(`http://i.giphy.com/9poL1pf3IbCO4.gif`,true)
+  //Call the giphy api
+  var synchronousRequest = new XMLHttpRequest();
+  synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho', false); // false means synchronous.
+  synchronousRequest.send();
+  bot.reply(`http://i.giphy.com/9poL1pf3IbCO4.gif`,true)
 });
 
 const server = restify.createServer();
