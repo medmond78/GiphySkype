@@ -35,11 +35,10 @@ botService.on('personalMessage', (bot, data) => {
   var obj = JSON.parse(synchronousRequest.responseText);
 
   //Reply
-  bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
+  //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
 
-  //Call the giphy api
+  bot.reply(`${obj['data']['image_original_url']}`, true);
 
-  //bot.reply(`http://i.giphy.com/9poL1pf3IbCO4.gif`,true)
 });
 
 const server = restify.createServer();
