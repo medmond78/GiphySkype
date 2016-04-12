@@ -31,7 +31,7 @@ botService.on('personalMessage', (bot, data) => {
 
   //call name API
   //synchronousRequest.open('GET', 'https://randomapi.com/api/?key=XY96-764H-K6J1-UBDR&id=k1nbk4p&noinfo', false); // false means synchronous.
-  synchronousRequest.open('GET', $mainURL, false); // false means synchronous.
+  synchronousRequest.open('GET', '$mainURL', false); // false means synchronous.
   synchronousRequest.send();
   var obj = JSON.parse(synchronousRequest.responseText);
 
