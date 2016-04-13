@@ -2,6 +2,7 @@ const fs = require('fs');
 const restify = require('restify');
 const skype = require('skype-sdk');
 //const giphy = require('giphy-api')();
+const request = require('request');
 
 const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const synchronousRequest = new XMLHttpRequest();
@@ -33,18 +34,21 @@ botService.on('personalMessage', (bot, data) => {
   synchronousRequest.open('GET', 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=' + data.content, false); // false means synchronous.
   synchronousRequest.send();
   var obj = JSON.parse(synchronousRequest.responseText);
+  console.log(obj)
 
   //Reply
   //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
+  const URL = obj['data']['image_original_url'];
+
   request({
       method: 'GET',
-      url: '${obj['data']['image_original_url']}',
+      url: URL,
       encoding: 'binary'
   }, function(err, response, data) {
       if (err) {
           return console.error(err);
       }
-      botService.sendAttachment(data.from, null, 'Image', data.toString('base64'), null, (err, response) => {
+      botService.sendAttachment(SEND_TO_SKYPE_USER, null, 'Image', data.toString('base64'), null, (err, response) => {
           if (err) {
               return console.error(err);
           }
@@ -53,7 +57,6 @@ botService.on('personalMessage', (bot, data) => {
   });
 
   bot.reply(`${obj['data']['image_original_url']}`, true);
-  //bot.reply(`${res}`, true);
 
 });
 
