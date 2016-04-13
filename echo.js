@@ -38,7 +38,7 @@ botService.on('personalMessage', (bot, data) => {
   //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
   request({
       method: 'GET',
-      url: ${obj['data']['image_original_url'],
+      url: '${obj['data']['image_original_url']}',
       encoding: 'binary'
   }, function(err, response, data) {
       if (err) {
