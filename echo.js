@@ -36,28 +36,6 @@ botService.on('personalMessage', (bot, data) => {
   var obj = JSON.parse(synchronousRequest.responseText);
   console.log(obj)
 
-  //Reply
-  //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
-  const URL = obj['data']['image_original_url'];
-  const SEND_TO_SKYPE_USER = $data.from;
-  console.log(SEND_TO_SKYPE_USER);
-  
-  request({
-      method: 'GET',
-      url: URL,
-      encoding: 'binary'
-  }, function(err, response, data) {
-      if (err) {
-          return console.error(err);
-      }
-      botService.sendAttachment(SEND_TO_SKYPE_USER, null, 'Image', data.toString('base64'), null, (err, response) => {
-          if (err) {
-              return console.error(err);
-          }
-          console.log(response);
-      });
-  });
-
   bot.reply(`${obj['data']['image_original_url']}`, true);
 
 });
