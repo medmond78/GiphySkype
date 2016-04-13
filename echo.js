@@ -36,6 +36,21 @@ botService.on('personalMessage', (bot, data) => {
 
   //Reply
   //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
+  request({
+      method: 'GET',
+      url: ${obj['data']['image_original_url'],
+      encoding: 'binary'
+  }, function(err, response, data) {
+      if (err) {
+          return console.error(err);
+      }
+      botService.sendAttachment(data.from, null, 'Image', data.toString('base64'), null, (err, response) => {
+          if (err) {
+              return console.error(err);
+          }
+          console.log(response);
+      });
+  });
 
   bot.reply(`${obj['data']['image_original_url']}`, true);
   //bot.reply(`${res}`, true);
