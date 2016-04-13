@@ -39,7 +39,9 @@ botService.on('personalMessage', (bot, data) => {
   //Reply
   //bot.reply(`Hey ${obj['data']['url']}. Thank you for your message: "${data.content}".`, true);
   const URL = obj['data']['image_original_url'];
-
+  const SEND_TO_SKYPE_USER = $data.from;
+  console.log(SEND_TO_SKYPE_USER);
+  
   request({
       method: 'GET',
       url: URL,
