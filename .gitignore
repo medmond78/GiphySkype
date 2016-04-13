@@ -2,6 +2,8 @@
 logs
 *.log
 npm-debug.log*
+echo_local.js
+vars.js
 
 # Runtime data
 pids
